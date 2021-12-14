@@ -1,0 +1,15 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.container {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.calculator {
+  box-sizing: border-box;
+  border: black 5px solid;
+  height: 30rem;
+  width: 15rem;
+}
