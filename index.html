@@ -26,34 +26,70 @@
       </div>
     </div>
 
+    <div class="Nav-dropdown">
+      <a href="#">Home</a>
+      <a href="#">About us</a>
+      <a href="#">Contact</a>
+      <a href="#">Contact</a>
+    </div>
     <div class="container">
-      <div class="Nav-dropdown">
-        <a href="#">Home</a>
-        <a href="#">About us</a>
-        <a href="#">Contact</a>
-        <a href="#">Contact</a>
-      </div>
       <div class="calculator">
-        <div class="calculator-screen">here is screen</div>
+        <div class="calculator-brand">
+          <h1>Casio</h1>
+        </div>
+        <div class="calculator-top">
+          <div class="calculator-screen">here is screen</div>
+          <div class="backspace button">Delete</div>
+        </div>
         <div class="calculator-buttons">
           <div class="button-numbers">
-            <div class="button button-1">1</div>
-            <div class="button button-2">2</div>
-            <div class="button button-3">3</div>
-            <div class="button button-4">4</div>
-            <div class="button button-5">5</div>
-            <div class="button button-6">6</div>
-            <div class="button button-7">7</div>
-            <div class="button button-8">8</div>
-            <div class="button button-9">9</div>
-            <div class="button button-0">0</div>
+            <div id="1" class="button button-1" onclick="{handleButton(event)}">
+              1
+            </div>
+            <div id="2" class="button button-2" onclick="{handleButton(event)}">
+              2
+            </div>
+            <div id="3" class="button button-3" onclick="{handleButton(event)}">
+              3
+            </div>
+            <div id="4" class="button button-4" onclick="{handleButton(event)}">
+              4
+            </div>
+            <div id="5" class="button button-5" onclick="{handleButton(event)}">
+              5
+            </div>
+            <div id="6" class="button button-6" onclick="{handleButton(event)}">
+              6
+            </div>
+            <div id="7" class="button button-7" onclick="{handleButton(event)}">
+              7
+            </div>
+            <div id="8" class="button button-8" onclick="{handleButton(event)}">
+              8
+            </div>
+            <div id="9" class="button button-9" onclick="{handleButton(event)}">
+              9
+            </div>
+            <div id="0" class="button button-0" onclick="{handleButton(event)}">
+              0
+            </div>
           </div>
           <div class="button-operators">
-            <div class="button addition">+</div>
-            <div class="button subtract">-</div>
-            <div class="button multiply">*</div>
-            <div class="button divide">/</div>
-            <div class="button equalto">=</div>
+            <div id="+" class="button addition" onclick="{handleButton(event)}">
+              +
+            </div>
+            <div id="-" class="button subtract" onclick="{handleButton(event)}">
+              -
+            </div>
+            <div id="*" class="button multiply" onclick="{handleButton(event)}">
+              *
+            </div>
+            <div id="/" class="button divide" onclick="{handleButton(event)}">
+              /
+            </div>
+            <div id="=" class="button equalto" onclick="{handleButton(event)}">
+              =
+            </div>
           </div>
         </div>
       </div>
