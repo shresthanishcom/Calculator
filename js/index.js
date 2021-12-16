@@ -10,18 +10,22 @@ function listIcon() {
   }
 }
 
+function clearStorage() {
+  localStorage.clear();
+  localStorage.setItem("number", []);
+}
 function handleButton(event) {
   const number = event.target.id;
 
-  let numbers = [1, 2];
   let operands = [];
   switch (number) {
     case "1":
       var storage = localStorage.getItem("number");
       var text = storage.split(",");
+      console.log(typeof text);
       console.log(text);
       text.push(number);
-      localStorage.setItem("number", numbers);
+      localStorage.setItem("number ", text);
 
     case "2":
       operation =
@@ -30,5 +34,16 @@ function handleButton(event) {
     case "+":
       operands.push(document.querySelector(".calculator-screen").innerHTML);
   }
-  document.querySelector(".calculator-screen").innerHTML = numbers;
+
+  let operand = transformObj(text);
+  document.querySelector(".calculator-screen").innerHTML = operand;
+}
+
+function transformObj(str) {
+  let sentence;
+  str.map((character) => {
+    sentence += character;
+  });
+  console.log("sentence transformed" + sentence);
+  return sentence;
 }
