@@ -12,13 +12,23 @@ function listIcon() {
 
 function handleButton(event) {
   const number = event.target.id;
-  let operation = [];
+
+  let numbers = [1, 2];
+  let operands = [];
   switch (number) {
     case "1":
-      operation.push(number);
-    case "2":
-      operation.push(number);
-  }
+      var storage = localStorage.getItem("number");
+      var text = storage.split(",");
+      console.log(text);
+      text.push(number);
+      localStorage.setItem("number", numbers);
 
-  document.querySelector(".calculator-screen").innerHTML = operation;
+    case "2":
+      operation =
+        document.querySelector(".calculator-screen").innerHTML + number;
+
+    case "+":
+      operands.push(document.querySelector(".calculator-screen").innerHTML);
+  }
+  document.querySelector(".calculator-screen").innerHTML = numbers;
 }
