@@ -110,37 +110,24 @@ function handleButton(event) {
       // localStorage.setItem("number", "");
       // console.log(numberArray);
       // localStorage.setItem("numberArray", numberArray);
+      operation(number);
 
-      let previousNumber = getStorage("number");
+      break;
 
-      display(previousNumber, number); //agadi ko number + operator 123 +
+    case "-":
+      operation(number);
+      break;
 
-      let numberArray = getStorage("numberArray");
+    case "/":
+      operation(number);
+      break;
 
-      numberArray += `,${previousNumber}`;
-      localStorage.setItem("numberArray", numberArray);
+    case "*":
+      operation(number);
+      break;
 
-      console.log(getStorage("numberArray"));
-
-      if (getStorage("operator") !== "") {
-        let operator = getStorage("operator");
-        switch (operator) {
-          case "+":
-            let oldNumber = getStorage("numberArray");
-            let calculatedValue = 0;
-            oldNumber.split(",").map((singleNumber) => {
-              calculatedValue += +singleNumber;
-            });
-            displayResult(calculatedValue);
-            localStorage.setItem("numberArray", calculatedValue);
-            localStorage.setItem("operator", "");
-
-            break;
-        }
-      }
-
-      localStorage.setItem("number", "");
-      localStorage.setItem("operator", number);
+    case "=":
+      operation(number);
       break;
 
     default:
@@ -173,3 +160,66 @@ const display = (previousNumber, operator) => {
 const displayResult = (result) => {
   document.getElementById("calculator-result").innerHTML = result;
 };
+
+function operation(number) {
+  let previousNumber = getStorage("number");
+
+  display(previousNumber, number); //agadi ko number + operator 123 +
+
+  let numberArray = getStorage("numberArray");
+
+  numberArray += `,${previousNumber}`;
+  localStorage.setItem("numberArray", numberArray);
+
+  if (getStorage("operator") !== "") {
+    let operator = getStorage("operator");
+    switch (operator) {
+      case "+":
+        var oldNumber = getStorage("numberArray");
+        var calculatedValue = 0;
+        oldNumber.split(",").map((singleNumber) => {
+          calculatedValue += +singleNumber;
+        });
+        displayResult(calculatedValue);
+        localStorage.setItem("numberArray", calculatedValue);
+        localStorage.setItem("operator", "");
+        break;
+
+      case "-":
+        var oldNumber = getStorage("numberArray");
+        var calculatedValue = 0;
+        oldNumber.split(",").map((singleNumber) => {
+          calculatedValue -= +singleNumber;
+        });
+        displayResult(calculatedValue);
+        localStorage.setItem("numberArray", calculatedValue);
+        localStorage.setItem("operator", "");
+        break;
+
+      case "/":
+        var oldNumber = getStorage("numberArray");
+        var calculatedValue = 0;
+        oldNumber.split(",").map((singleNumber) => {
+          calculatedValue = calculatedValue / +singleNumber;
+        });
+        displayResult(calculatedValue);
+        localStorage.setItem("numberArray", calculatedValue);
+        localStorage.setItem("operator", "");
+        break;
+
+      case "*":
+        var oldNumber = getStorage("numberArray");
+        var calculatedValue = 0;
+        oldNumber.split(",").map((singleNumber) => {
+          calculatedValue = calculatedValue * parseInt(singleNumber);
+        });
+        displayResult(calculatedValue);
+        localStorage.setItem("numberArray", calculatedValue);
+        localStorage.setItem("operator", "");
+        break;
+    }
+  }
+
+  localStorage.setItem("number", "");
+  localStorage.setItem("operator", number);
+}
