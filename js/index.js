@@ -10,40 +10,93 @@ function listIcon() {
   }
 }
 
+// function clearStorage() {
+//   localStorage.clear();
+//   localStorage.setItem("number", []);
+// }
+// function handleButton(event) {
+//   const number = event.target.id;
+
+//   let operands = [];
+//   switch (number) {
+//     case "1":
+//       var storage = localStorage.getItem("number");
+//       var text = storage.split(",");
+//       console.log(typeof text);
+//       console.log(text);
+//       text.push(number);
+//       localStorage.setItem("number ", text);
+
+//     case "2":
+//       operation =
+//         document.querySelector(".calculator-screen").innerHTML + number;
+
+//     case "+":
+//       operands.push(document.querySelector(".calculator-screen").innerHTML);
+//   }
+
+//   let operand = transformObj(text);
+//   document.querySelector(".calculator-screen").innerHTML = operand;
+// }
+
 function clearStorage() {
   localStorage.clear();
-  localStorage.setItem("number", []);
+  localStorage.setItem("number", "");
+  localStorage.setItem("numberArray", "");
+  localStorage.setItem("operator", "");
 }
 function handleButton(event) {
   const number = event.target.id;
 
-  let operands = [];
   switch (number) {
     case "1":
-      var storage = localStorage.getItem("number");
-      var text = storage.split(",");
-      console.log(typeof text);
-      console.log(text);
-      text.push(number);
-      localStorage.setItem("number ", text);
+      setStorage(number);
+      break;
 
-    case "2":
-      operation =
-        document.querySelector(".calculator-screen").innerHTML + number;
+    case "2": {
+      setStorage(number);
+      break;
+    }
 
     case "+":
-      operands.push(document.querySelector(".calculator-screen").innerHTML);
+      // let numberArrayString = getStorage("numberArray");
+      // let numberArray = numberArrayString.split(",");
+      // numberArray.push(getStorage("number"));
+      // localStorage.setItem("number", "");
+      // console.log(numberArray);
+      // localStorage.setItem("numberArray", numberArray);
+
+      let previousNumber = getStorage("number");
+      let numberArray = [];
+
+      numberArray.(previousNumber);
+      localStorage.setItem("numberArray", numberArray);
+
+      console.log(getStorage("numberArray"));
+
+      if (getStorage("operator") !== "") {
+        let operator = getStorage("operator");
+        switch (operator) {
+          case "+":
+            break;
+        }
+      }
+      localStorage.setItem("operator", number);
+      break;
+
+    default:
+      console.log("wrong data entered");
   }
 
-  let operand = transformObj(text);
-  document.querySelector(".calculator-screen").innerHTML = operand;
+  document.querySelector(".calculator-screen").innerHTML =
+    localStorage.getItem("number");
 }
 
-function transformObj(str) {
-  let sentence;
-  str.map((character) => {
-    sentence += character;
-  });
-  console.log("sentence transformed" + sentence);
-  return sentence;
-}
+const setStorage = (number) => {
+  let storage = getStorage("number");
+  storage += number;
+  localStorage.setItem("number", storage);
+};
+const getStorage = (itemName) => {
+  return localStorage.getItem(itemName);
+};
