@@ -65,11 +65,13 @@ function handleButton(event) {
       // localStorage.setItem("number", "");
       // console.log(numberArray);
       // localStorage.setItem("numberArray", numberArray);
-
       let previousNumber = getStorage("number");
-      let numberArray = [];
+      document.querySelector(
+        ".calculator-screen"
+      ).innerHTML = `${previousNumber} + `;
+      let numberArray = getStorage("numberArray");
 
-      numberArray.(previousNumber);
+      numberArray += `,${previousNumber}`;
       localStorage.setItem("numberArray", numberArray);
 
       console.log(getStorage("numberArray"));
@@ -78,18 +80,25 @@ function handleButton(event) {
         let operator = getStorage("operator");
         switch (operator) {
           case "+":
+            let oldNumber = getStorage("numberArray");
+            let calculatedValue = 0;
+            oldNumber.split(",").map((singleNumber) => {
+              calculatedValue += +singleNumber;
+            });
+            localStorage.setItem("numberArray", calculatedValue);
+            localStorage.setItem("operator", "");
+
             break;
         }
       }
+
+      localStorage.setItem("number", "");
       localStorage.setItem("operator", number);
       break;
 
     default:
       console.log("wrong data entered");
   }
-
-  document.querySelector(".calculator-screen").innerHTML =
-    localStorage.getItem("number");
 }
 
 const setStorage = (number) => {
