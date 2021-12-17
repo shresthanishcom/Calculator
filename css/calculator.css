@@ -27,8 +27,16 @@
   box-sizing: border-box;
   border: blue 2px solid;
   display: grid;
-  align-items: center;
-  justify-content: center;
+  grid-template-rows: 70% 30%;
+}
+#calculator-operation {
+  border: brown 2px solid;
+}
+#calculator-result {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  border: orange 2px solid;
 }
 .backspace {
   height: 100%;
